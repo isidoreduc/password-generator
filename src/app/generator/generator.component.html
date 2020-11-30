@@ -1,0 +1,17 @@
+<div class="container" >
+  <h1 class="my-3">Password generator</h1>
+  <div class="form-group w-25">
+    <label for="">Length</label>
+    <input type="text" class="form-control mb-2" name="" id="" placeholder="" (input)="onLengthInput($event.target.value)">
+    <small id="helpId" class="form-text text-danger">{{helpText}}</small>
+    <input type="checkbox" name="" id="" class="mb-2 mt-2" (change)="onUseLetters()"> Use letters <br>
+    <input type="checkbox" name="" id="" class="mb-2" (change)="onUseNumbers()"> Use numbers <br>
+    <input type="checkbox" name="" id="" class="mb-2" (change)="onUseSymbols()"> Use symbols <br>
+    <button class="btn btn-primary my-3 w-100" type="button" (click)="generate()"
+      [disabled]="!(length && (useLetters || useNumbers || useSymbols))">Generate</button>
+  </div>
+  <div *ngIf="password !== ''">
+    <span >Your password</span><br>
+    <input class="p-2 mt-2 w-25" [value]="password"/>
+  </div>
+</div>
